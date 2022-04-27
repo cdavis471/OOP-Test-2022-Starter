@@ -16,9 +16,38 @@ public class NematodeVisualiser extends PApplet
 	//sift through the nematodes
 	public void keyPressed()
 	{		
+		//left key press
 		if (keyCode == LEFT)
 		{
-		}		
+			//if at first nematode
+			if(selectedNematode == 0)
+			{
+				//set to last nematode
+				selectedNematode = nematodes.size() - 1;
+			}//end if statement
+			//if not at first nematode
+			else
+			{
+				//decrement by 1
+				selectedNematode = selectedNematode - 1;
+			}//end else statement
+		}//end if statement
+		//right key press
+		if (keyCode == RIGHT)
+		{
+			//if at last nematode
+			if(selectedNematode == (nematodes.size() - 1))
+			{
+				//set to first nematode
+				selectedNematode = 0;
+			}//end if statement
+			//if not at last nematode
+			else
+			{
+				//increment by 1
+				selectedNematode = selectedNematode + 1;
+			}//end else statement
+		}//end if statement	
 	}//end keyPressed
 
 	public void settings()
@@ -75,7 +104,6 @@ public class NematodeVisualiser extends PApplet
 		stroke(255,255,200);
 		for(int i = 1;i <= length;i++)
 		{
-
 			//limbs
 			if(limbs == 1)
 			{
