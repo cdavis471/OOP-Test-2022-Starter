@@ -97,11 +97,24 @@ public class NematodeVisualiser extends PApplet
 		fill(0,0,255);
 		text(nematodes.get(selectedNematode).getNemName(), width/2, height/10);
 
+		//nematode body
+		//dynamic colour for gender
+		if(gender.contains("m") == true)
+		{
+			stroke(0,200,255);
+		}//end if statement
+		if(gender.contains("f") == true)
+		{
+			stroke(100,200,255);
+		}//end if statement
+		if(gender.contains("h") == true)
+		{
+			stroke(200,200,255);
+		}//end if statement
 		//length
 		ellipseMode(CENTER);
 		fill(0,0,0);
 		strokeWeight(3);
-		stroke(255,255,200);
 		for(int i = 1;i <= length;i++)
 		{
 			//limbs
