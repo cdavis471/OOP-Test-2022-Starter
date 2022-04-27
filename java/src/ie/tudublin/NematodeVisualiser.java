@@ -10,27 +10,29 @@ public class NematodeVisualiser extends PApplet
 
 	//declare array list of nematode objects
 	ArrayList<Nematode> nematodes = new ArrayList<Nematode>();
+	//declare variable for selecting nematode
+	int selectedNematode = 0;
 
+	//sift through the nematodes
 	public void keyPressed()
 	{		
 		if (keyCode == LEFT)
 		{
 		}		
-	}
-
+	}//end keyPressed
 
 	public void settings()
 	{
 		size(800, 800);
 		loadNematodes();//load csv file and populate ArrayList
-	}
+	}//end settings
 
 	public void setup() 
 	{
 		colorMode(HSB);
 		background(0);
 		smooth();				
-	}
+	}//end setup
 	
 	//loadNematodes method
 	public void loadNematodes()
@@ -50,6 +52,27 @@ public class NematodeVisualiser extends PApplet
 	public void draw()
 	{
 
-	}
+		//graphic setup
+		colorMode(HSB);
+		background(0);
+
+		//name
+		textSize(20);
+		textAlign(CENTER);
+		fill(0,0,255);
+		text(nematodes.get(selectedNematode).getNemName(), width/2, height/10);
+
+		//length
+		ellipseMode(CENTER);
+		fill(0,0,0);
+		strokeWeight(3);
+		stroke(255,255,200);
+		int length = nematodes.get(selectedNematode).getNemLength();
+		for(int i = 1;i <= length;i++)
+		{
+			ellipse(width/2,(height/8) + (50*i),50,50);
+		}//end for loop
+
+	}//end draw method
 
 }//end class
